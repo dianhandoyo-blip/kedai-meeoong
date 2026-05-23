@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kedai Meeoong — Ambon</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --pr:#C0392B;--pr2:#E67E22;--dark:#2C1810;--brown:#4A3728;
+  --muted:#8B7355;--cream:#F5E6D3;--bg:#FAF7F2;--card:#fff;
+  --r:16px;--fh:'Playfair Display',serif;--fb:'Poppins',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);color:var(--brown)}
+a{text-decoration:none;color:inherit}
+img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* ===== NAV DESKTOP ===== */
+nav{position:sticky;top:0;z-index:200;background:rgba(250,247,242,.97);
+  backdrop-filter:blur(12px);border-bottom:1px solid rgba(192,57,43,.15);
+  padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;cursor:pointer;flex-shrink:0}
+.logo-ic{width:38px;height:38px;border-radius:50%;
+  background:linear-gradient(135deg,var(--pr),var(--pr2));
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+  overflow:hidden;position:relative;flex-shrink:0}
+.logo-ic img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.logo span{font-family:var(--fh);font-size:19px;font-weight:700;color:var(--dark)}
+.nav-links{display:flex;gap:24px;list-style:none}
+.nav-links a{font-size:14px;font-weight:500;color:var(--muted);cursor:pointer;transition:color .2s}
+.nav-links a:hover,.nav-links a.on{color:var(--pr)}
+.nav-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.cart-btn-nav{position:relative;background:none;border:none;cursor:pointer;font-size:22px;padding:4px 8px}
+.cart-count{position:absolute;top:-2px;right:-2px;background:var(--pr);color:#fff;
+  border-radius:50%;width:18px;height:18px;font-size:10px;font-weight:700;
+  display:none;align-items:center;justify-content:center}
+.btn{padding:9px 20px;border-radius:30px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--fb);transition:all .2s;border:none}
+.btn-o{border:2px solid var(--pr)!important;color:var(--pr);background:transparent}
+.btn-o:hover{background:var(--pr);color:#fff}
+.btn-f{border:2px solid var(--pr)!important;background:var(--pr);color:#fff}
+.btn-f:hover{background:#a93226}
+/* Hamburger — hidden desktop */
+.ham-btn{display:none;flex-direction:column;justify-content:center;gap:5px;
+  background:none;border:none;cursor:pointer;padding:6px;width:36px;height:36px;flex-shrink:0}
+.ham-btn span{display:block;width:22px;height:2.5px;background:var(--dark);
+  border-radius:2px;transition:all .3s;transform-origin:center}
+.ham-btn.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.ham-btn.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.ham-btn.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+/* PAGE */
+.page{display:none}.page.on{display:block}
+
+/* HERO */
+.hero{position:relative;min-height:520px;display:flex;align-items:center;
+  background:linear-gradient(135deg,#2C1810,#8B1A1A 45%,#C0392B 75%,#E67E22)}
+.hero-imgbox{position:absolute;inset:0;width:100%;height:100%;overflow:hidden}
+.hero-imgbox img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(90deg,rgba(44,24,16,.88) 45%,rgba(44,24,16,.45))}
+.hero-content{position:relative;z-index:2;padding:60px}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+  border-radius:30px;padding:6px 16px;margin-bottom:18px;
+  font-size:12px;font-weight:600;color:rgba(255,255,255,.9);letter-spacing:1px;text-transform:uppercase}
+.hero-content h1{font-family:var(--fh);font-size:50px;font-weight:900;color:#fff;line-height:1.15;margin-bottom:16px}
+.hero-content h1 span{color:var(--pr2)}
+.hero-content p{font-size:15px;color:rgba(255,255,255,.82);line-height:1.7;margin-bottom:28px;max-width:500px}
+.hero-btns{display:flex;gap:14px}
+.hbtn-main{padding:14px 32px;background:var(--pr);color:#fff;border-radius:30px;
+  border:none;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--fb);
+  box-shadow:0 8px 24px rgba(192,57,43,.4);transition:all .2s}
+.hbtn-main:hover{background:#a93226;transform:translateY(-2px)}
+.hbtn-sec{padding:14px 32px;background:rgba(255,255,255,.12);color:#fff;
+  border-radius:30px;border:2px solid rgba(255,255,255,.4);font-size:15px;
+  font-weight:600;cursor:pointer;font-family:var(--fb);transition:all .2s}
+.hbtn-sec:hover{background:rgba(255,255,255,.22)}
+
+/* SECTION */
+.sec{padding:64px 60px}
+.sec-alt{background:var(--cream)}
+.sec-dark{background:var(--dark)}
+.sec-hd{text-align:center;margin-bottom:44px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--pr);margin-bottom:8px}
+.sec-hd h2{font-family:var(--fh);font-size:34px;font-weight:800;color:var(--dark);margin-bottom:8px}
+.sec-hd p{font-size:14px;color:var(--muted);max-width:520px;margin:0 auto;line-height:1.7}
+
+/* PAGE HEADER */
+.pg-hd{padding:52px 60px;text-align:center;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#2C1810,#8B1A1A 55%,#C0392B)}
+.pg-hd-bg{position:absolute;inset:0;z-index:0}
+.pg-hd-bg img{width:100%;height:100%;object-fit:cover;opacity:.18}
+.pg-hd h1{font-family:var(--fh);font-size:40px;font-weight:900;color:#fff;margin-bottom:8px;position:relative;z-index:1}
+.pg-hd p{font-size:15px;color:rgba(255,255,255,.82);position:relative;z-index:1}
+
+/* MENU CARD */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;align-items:stretch}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+.grid-auto{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px;align-items:stretch}
+.mcard{background:var(--card);border-radius:var(--r);overflow:hidden;
+  box-shadow:0 4px 20px rgba(74,55,40,.08);transition:transform .25s,box-shadow .25s;
+  display:flex;flex-direction:column}
+.mcard:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(74,55,40,.14)}
+.mcard-img{height:190px;background:var(--cream);overflow:hidden;position:relative;flex-shrink:0}
+.mcard-img img{transition:transform .4s}
+.mcard:hover .mcard-img img{transform:scale(1.06)}
+.img-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:600;color:var(--muted);letter-spacing:1px;background:#f0e8dc;
+  flex-direction:column;gap:6px}
+.img-ph-icon{font-size:36px}
+.mcard-body{padding:16px 18px 20px;display:flex;flex-direction:column;flex:1}
+.cat{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--pr);margin-bottom:5px}
+.mcard-body h3{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:5px}
+.mcard-body>p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:12px;flex:1}
+.vtags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px}
+.vt{background:#fff3f0;color:var(--pr);border:1px solid rgba(192,57,43,.2);
+  border-radius:20px;font-size:10px;font-weight:600;padding:3px 10px}
+.card-foot{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.price{font-family:var(--fh);font-size:17px;font-weight:800;color:var(--pr)}
+.stars{font-size:12px;color:#f39c12;font-weight:700}
+.add-btn{width:100%;padding:11px;background:var(--pr);color:#fff;border:none;
+  border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;font-family:var(--fb);transition:background .2s;margin-top:auto}
+.add-btn:hover{background:#a93226}
+.add-btn.added{background:#27AE60}
+
+/* FILTER BAR */
+.filter-bar{display:flex;gap:10px;justify-content:center;padding:28px 60px 4px;flex-wrap:wrap}
+.fb{padding:9px 22px;border-radius:30px;border:2px solid #ddd;background:#fff;
+  font-size:14px;font-weight:600;color:var(--muted);cursor:pointer;font-family:var(--fb);transition:all .2s}
+.fb.on,.fb:hover{background:var(--pr);color:#fff;border-color:var(--pr)}
+
+/* TESTI */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tc{background:var(--card);border-radius:var(--r);padding:26px;box-shadow:0 2px 12px rgba(74,55,40,.07)}
+.qmark{font-size:34px;color:var(--pr);line-height:1;margin-bottom:10px;font-family:Georgia,serif}
+.tc p{font-size:14px;color:var(--brown);line-height:1.7;margin-bottom:14px}
+.tc-name{font-weight:700;font-size:14px;color:var(--dark)}
+.tc-stars{color:#f39c12;font-size:13px;margin-top:3px}
+
+/* PROMO BANNER */
+.promo-banner{background:url('bg_1.jpeg') center/cover no-repeat,linear-gradient(135deg,var(--pr),var(--pr2));
+  border-radius:22px;padding:52px;text-align:center}
+.promo-banner h2{font-family:var(--fh);font-size:30px;font-weight:800;color:#fff;margin-bottom:8px}
+.promo-banner p{font-size:15px;color:rgba(255,255,255,.88);margin-bottom:22px}
+.pcode{display:inline-block;background:rgba(255,255,255,.2);border:2px solid rgba(255,255,255,.5);
+  border-radius:30px;padding:11px 30px;font-size:18px;font-weight:800;color:#fff;letter-spacing:3px}
+
+/* PROMO PAGE */
+.pcard{background:var(--card);border-radius:var(--r);overflow:hidden;
+  box-shadow:0 4px 20px rgba(74,55,40,.09);margin-bottom:26px;
+  display:grid;grid-template-columns:320px 1fr}
+.pcard-img{width:100%;height:100%;min-height:220px;position:relative;overflow:hidden}
+.pcard-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.pcard:hover .pcard-img img{transform:scale(1.04)}
+.pcard-img-inner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;color:rgba(255,255,255,.85);letter-spacing:1px;flex-direction:column;gap:8px}
+.pcard-img-inner span{font-size:40px}
+.pcard-body{padding:28px 32px;display:flex;flex-direction:column;justify-content:center}
+.pct{font-family:var(--fh);font-size:34px;font-weight:900;color:var(--pr);margin-bottom:4px}
+.ptitle{font-size:20px;font-weight:700;color:var(--dark);margin-bottom:8px}
+.pdesc{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:16px}
+.codebox{background:#fff9f0;border:2px dashed #f39c12;border-radius:12px;padding:14px 18px;margin-bottom:10px}
+.cl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:2px}
+.cv{font-size:22px;font-weight:900;color:var(--pr);letter-spacing:3px;font-family:var(--fh)}
+.copy-code-btn{display:inline-block;margin-top:10px;padding:9px 20px;background:var(--pr);color:#fff;border:none;border-radius:8px;
+  font-size:13px;font-weight:700;cursor:pointer;font-family:var(--fb);white-space:nowrap;transition:background .2s}
+.copy-code-btn:hover{background:#a93226}
+.copy-code-btn.copied{background:#27AE60}
+.valid{font-size:12px;color:#aaa;margin-top:6px;display:block}
+
+/* VOUCHER */
+.vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.vcard{background:var(--card);border-radius:var(--r);padding:22px;text-align:center;
+  box-shadow:0 2px 10px rgba(74,55,40,.07);transition:all .2s}
+.vcard.claimed{opacity:.55}
+.vi{font-size:30px;margin-bottom:10px}
+.vcard h3{font-size:15px;font-weight:700;margin-bottom:5px;color:var(--dark)}
+.vcard>p{font-size:12px;color:var(--muted);margin-bottom:12px}
+.vcode-badge{background:#fff9f0;border:1px solid #f39c12;border-radius:8px;
+  padding:5px 12px;font-size:14px;font-weight:800;color:var(--pr);display:inline-block;margin-bottom:12px}
+.claim-btn{width:100%;padding:9px;background:var(--pr);color:#fff;border:none;
+  border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:var(--fb);transition:background .2s}
+.claim-btn:hover{background:#a93226}
+.claim-btn:disabled{background:#aaa;cursor:not-allowed}
+
+/* LOYALTY */
+.loyalty{background:url('bg_2.jpeg') center/cover no-repeat,linear-gradient(135deg,var(--pr),var(--pr2));
+  border-radius:22px;padding:52px;text-align:center}
+.loyalty h2{font-family:var(--fh);font-size:28px;font-weight:800;color:#fff;margin-bottom:10px}
+.loyalty p{font-size:15px;color:rgba(255,255,255,.88);margin-bottom:24px;line-height:1.7}
+.loyalty-btn{padding:14px 36px;background:#fff;color:var(--pr);border-radius:30px;
+  border:none;font-size:15px;font-weight:800;cursor:pointer;font-family:var(--fb);transition:all .2s}
+.loyalty-btn:hover{transform:scale(1.04)}
+
+/* ABOUT */
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.story-imgbox{border-radius:var(--r);overflow:hidden;height:360px;background:var(--cream)}
+.story-text h2{font-family:var(--fh);font-size:30px;font-weight:800;color:var(--dark);margin-bottom:18px;line-height:1.3}
+.story-text p{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:14px}
+.val-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.val-card{background:var(--card);border-radius:var(--r);padding:26px 20px;text-align:center;
+  box-shadow:0 2px 12px rgba(74,55,40,.07)}
+.val-ic{width:54px;height:54px;background:var(--pr);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 12px}
+.val-card h3{font-size:14px;font-weight:700;margin-bottom:7px;color:var(--dark)}
+.val-card p{font-size:12px;color:var(--muted);line-height:1.6}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.team-card{text-align:center}
+.team-av{width:120px;height:120px;border-radius:50%;margin:0 auto 14px;
+  display:flex;align-items:center;justify-content:center;font-size:48px;
+  overflow:hidden;position:relative}
+.team-av img{width:100%;height:100%;object-fit:cover;object-position:center;
+  position:absolute;inset:0;border-radius:50%}
+.av1{background:linear-gradient(135deg,#f39c12,#e67e22)}
+.av2{background:linear-gradient(135deg,#e74c3c,#c0392b)}
+.av3{background:linear-gradient(135deg,#3498db,#2980b9)}
+.team-card h3{font-size:17px;font-weight:700;color:var(--dark);margin-bottom:3px}
+.team-role{font-size:13px;color:var(--pr);font-weight:600;margin-bottom:7px}
+.team-card p{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* CONTACT */
+.con-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:44px}
+.con-info h2{font-family:var(--fh);font-size:24px;font-weight:800;color:var(--dark);margin-bottom:24px}
+.ci{display:flex;gap:14px;margin-bottom:22px;align-items:flex-start}
+.ci-ic{width:46px;height:46px;background:var(--pr);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0;
+  overflow:hidden;position:relative}
+.ci-ic img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;border-radius:50%}
+.ci-tx h4{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:3px}
+.ci-tx p{font-size:13px;color:var(--muted);line-height:1.6}
+.soc-box{background:var(--cream);border-radius:var(--r);padding:20px;margin-top:24px}
+.soc-box h4{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:12px}
+.soc-icons{display:flex;gap:10px}
+.soc-ic{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-size:13px;font-weight:800;color:#fff;cursor:pointer;
+  overflow:hidden;position:relative}
+.soc-ic img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;border-radius:50%}
+.s-fb{background:#3b5998}.s-ig{background:linear-gradient(135deg,#f09433,#dc2743,#bc1888)}
+.cf{background:var(--card);border-radius:var(--r);padding:36px;box-shadow:0 6px 28px rgba(74,55,40,.1)}
+.cf h2{font-family:var(--fh);font-size:22px;font-weight:800;color:var(--dark);margin-bottom:5px}
+.cf>p{font-size:14px;color:var(--muted);margin-bottom:24px}
+.fg{margin-bottom:16px}
+.fg label{display:block;font-size:13px;font-weight:600;color:var(--brown);margin-bottom:6px}
+.fg input,.fg textarea{width:100%;padding:12px 14px;border:2px solid rgba(192,57,43,.15);
+  border-radius:10px;font-size:14px;color:var(--brown);background:#fafaf8;font-family:var(--fb);
+  outline:none;transition:border .2s}
+.fg input:focus,.fg textarea:focus{border-color:var(--pr)}
+.fg textarea{height:110px;resize:vertical}
+.sub-btn{width:100%;padding:13px;background:var(--pr);color:#fff;border:none;
+  border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--fb);transition:background .2s}
+.sub-btn:hover{background:#a93226}
+.map-box{width:100%;height:380px;border-radius:var(--r);overflow:hidden;
+  box-shadow:0 4px 20px rgba(74,55,40,.12);margin-top:40px}
+.map-box iframe{width:100%;height:100%;border:0;display:block}
+
+/* AUTH */
+.auth-lay{display:grid;grid-template-columns:1fr 1fr;min-height:600px}
+.auth-l{position:relative;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:60px;text-align:center;overflow:hidden}
+.auth-l-bg{position:absolute;inset:0;z-index:0}
+.auth-l-bg img{width:100%;height:100%;object-fit:cover}
+.auth-l-ov{position:absolute;inset:0;z-index:1;background:linear-gradient(135deg,rgba(44,24,16,.82),rgba(139,26,26,.78) 50%,rgba(192,57,43,.7) 80%,rgba(230,126,34,.65))}
+.auth-l-content{position:relative;z-index:2;width:100%}
+.auth-l h2{font-family:var(--fh);font-size:30px;font-weight:800;color:#fff;margin-bottom:12px}
+.auth-l p{font-size:15px;color:rgba(255,255,255,.85);line-height:1.7}
+.benefits{margin-top:22px;text-align:left;width:100%}
+.bi{display:flex;align-items:center;gap:8px;margin-bottom:10px;font-size:14px;color:rgba(255,255,255,.9)}
+.auth-r{background:#fff;padding:52px 46px;display:flex;flex-direction:column;justify-content:center}
+.auth-brand{display:flex;align-items:center;gap:10px;margin-bottom:26px}
+.auth-brand-ic{width:34px;height:34px;border-radius:50%;
+  background:linear-gradient(135deg,var(--pr),var(--pr2));
+  display:flex;align-items:center;justify-content:center;font-size:15px;overflow:hidden;position:relative;flex-shrink:0}
+.auth-brand span{font-family:var(--fh);font-size:16px;font-weight:700;color:var(--dark)}
+.auth-r h2{font-family:var(--fh);font-size:28px;font-weight:800;color:var(--dark);margin-bottom:5px}
+.auth-r>p{font-size:14px;color:var(--muted);margin-bottom:24px}
+.f-opts{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;font-size:13px}
+.f-opts a{color:var(--pr);font-weight:600;cursor:pointer}
+.auth-btn{width:100%;padding:13px;background:var(--pr);color:#fff;border:none;
+  border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--fb);
+  margin-bottom:16px;transition:background .2s}
+.auth-btn:hover{background:#a93226}
+.divider{text-align:center;font-size:13px;color:#bbb;margin:2px 0 16px}
+.sl-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.sl-btn{padding:11px;border:2px solid #eee;border-radius:10px;background:#fff;
+  font-size:14px;font-weight:600;color:var(--brown);cursor:pointer;font-family:var(--fb)}
+.auth-sw{text-align:center;font-size:14px;color:var(--muted)}
+.auth-sw span{color:var(--pr);font-weight:700;cursor:pointer}
+.terms-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:20px;font-size:13px;color:var(--muted)}
+.terms-row a{color:var(--pr);font-weight:600}
+
+/* FOOTER */
+footer{background:var(--dark);padding:48px 60px 20px;color:rgba(255,255,255,.65)}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 2fr 1fr;gap:36px;margin-bottom:32px}
+.ft-logo{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.ft-logo span{font-family:var(--fh);font-size:18px;font-weight:700;color:#fff}
+.ft-brand p{font-size:13px;line-height:1.8}
+.ft-col h4{font-size:14px;font-weight:700;color:#fff;margin-bottom:12px}
+.ft-col a{display:block;font-size:13px;color:rgba(255,255,255,.6);margin-bottom:8px;cursor:pointer;transition:color .2s}
+.ft-col a:hover{color:var(--pr2)}
+.ft-ci{display:flex;gap:8px;font-size:13px;margin-bottom:9px;line-height:1.5}
+.ft-ci-ic{color:var(--pr2);flex-shrink:0}
+.ft-soc{display:flex;gap:10px;margin-top:6px}
+.fsoc{width:34px;height:34px;background:rgba(255,255,255,.1);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;
+  cursor:pointer;transition:background .2s;overflow:hidden;position:relative}
+.fsoc img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;border-radius:50%}
+.fsoc:hover{background:var(--pr)}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:16px;
+  text-align:center;font-size:12px;color:rgba(255,255,255,.35)}
+
+/* CART SIDEBAR */
+.cart-overlay{display:none;position:fixed;inset:0;z-index:500;background:rgba(44,24,16,.5);backdrop-filter:blur(3px)}
+.cart-overlay.open{display:block}
+.cart-sidebar{position:fixed;top:0;right:-400px;width:380px;height:100vh;
+  background:#fff;z-index:501;display:flex;flex-direction:column;
+  box-shadow:-8px 0 40px rgba(0,0,0,.15);transition:right .3s ease}
+.cart-sidebar.open{right:0}
+.cart-hd{padding:24px 24px 16px;border-bottom:1px solid #f0e8dc;display:flex;align-items:center;justify-content:space-between}
+.cart-hd h3{font-family:var(--fh);font-size:20px;font-weight:800;color:var(--dark)}
+.cart-close{background:none;border:none;font-size:22px;cursor:pointer;color:var(--muted)}
+.cart-items{flex:1;overflow-y:auto;padding:16px 24px}
+.cart-empty{text-align:center;padding:60px 20px;color:var(--muted)}
+.cart-empty-ic{font-size:48px;margin-bottom:12px}
+.ci-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #f5ede8}
+.ci-name{flex:1}
+.ci-name h4{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:2px}
+.ci-name p{font-size:12px;color:var(--muted)}
+.ci-qty{display:flex;align-items:center;gap:8px}
+.qty-btn{width:28px;height:28px;border-radius:50%;border:2px solid var(--pr);
+  background:none;color:var(--pr);font-size:16px;font-weight:700;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:all .2s}
+.qty-btn:hover{background:var(--pr);color:#fff}
+.qty-num{font-size:14px;font-weight:700;color:var(--dark);min-width:20px;text-align:center}
+.ci-price{font-size:14px;font-weight:700;color:var(--pr);white-space:nowrap}
+.cart-ft{padding:16px 24px;border-top:1px solid #f0e8dc}
+.cart-total{display:flex;justify-content:space-between;margin-bottom:14px}
+.cart-total span{font-size:14px;color:var(--muted)}
+.cart-total strong{font-family:var(--fh);font-size:20px;color:var(--pr)}
+.checkout-btn{width:100%;padding:14px;background:var(--pr);color:#fff;border:none;
+  border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--fb);transition:background .2s}
+.checkout-btn:hover{background:#a93226}
+
+/* VOUCHER MODAL */
+.modal-ov{display:none;position:fixed;inset:0;z-index:600;
+  background:rgba(44,24,16,.6);backdrop-filter:blur(4px);
+  align-items:center;justify-content:center}
+.modal-ov.open{display:flex}
+.mbox{background:#fff;border-radius:22px;padding:38px 34px;
+  max-width:380px;width:90%;text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,.25);animation:pop .25s ease}
+@keyframes pop{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+.mbox-ic{font-size:50px;margin-bottom:12px}
+.mbox h3{font-family:var(--fh);font-size:22px;font-weight:800;color:var(--dark);margin-bottom:7px}
+.mbox p{font-size:14px;color:var(--muted);margin-bottom:18px;line-height:1.6}
+.mcode-box{background:#fff9f0;border:2px dashed #f39c12;border-radius:12px;padding:14px;margin-bottom:18px}
+.mcode-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:3px}
+.mcode-val{font-size:26px;font-weight:900;color:var(--pr);letter-spacing:3px;font-family:var(--fh)}
+.m-copy{width:100%;padding:12px;background:var(--pr);color:#fff;border:none;
+  border-radius:12px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--fb);
+  margin-bottom:8px;transition:background .2s}
+.m-copy:hover{background:#a93226}
+.m-close{width:100%;padding:11px;background:transparent;color:var(--muted);
+  border:2px solid #eee;border-radius:12px;font-size:14px;font-weight:600;
+  cursor:pointer;font-family:var(--fb)}
+.m-close:hover{border-color:var(--pr);color:var(--pr)}
+
+/* CHECKOUT MODAL */
+.co-mbox{background:#fff;border-radius:22px;padding:38px 34px;
+  max-width:420px;width:92%;text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,.25);animation:pop .25s ease}
+.co-mbox h3{font-family:var(--fh);font-size:22px;font-weight:800;color:var(--dark);margin-bottom:8px}
+.co-mbox p{font-size:14px;color:var(--muted);margin-bottom:16px}
+.co-summary{background:var(--cream);border-radius:12px;padding:16px;margin-bottom:16px;text-align:left}
+.co-row{display:flex;justify-content:space-between;font-size:13px;color:var(--brown);margin-bottom:6px}
+.co-row.total{font-weight:700;font-size:15px;color:var(--dark);border-top:1px solid rgba(192,57,43,.15);padding-top:8px;margin-top:4px}
+.co-input{width:100%;padding:11px 14px;border:2px solid rgba(192,57,43,.15);border-radius:10px;
+  font-size:14px;color:var(--brown);font-family:var(--fb);outline:none;margin-bottom:10px;transition:border .2s}
+.co-input:focus{border-color:var(--pr)}
+.co-vfield{display:flex;gap:8px;margin-bottom:10px}
+.co-vfield input{flex:1;padding:11px 14px;border:2px solid rgba(192,57,43,.15);border-radius:10px;
+  font-size:14px;color:var(--brown);font-family:var(--fb);outline:none;transition:border .2s}
+.co-vfield input:focus{border-color:var(--pr)}
+.co-vfield button{padding:11px 16px;background:var(--pr);color:#fff;border:none;border-radius:10px;
+  font-size:13px;font-weight:700;cursor:pointer;font-family:var(--fb);white-space:nowrap}
+.v-status{font-size:12px;margin-bottom:10px;min-height:18px}
+.v-ok{color:#27AE60;font-weight:600}.v-err{color:var(--pr);font-weight:600}
+.co-order-btn{width:100%;padding:13px;background:var(--pr);color:#fff;border:none;
+  border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--fb);
+  margin-bottom:8px;transition:background .2s}
+.co-order-btn:hover{background:#a93226}
+.co-cancel{width:100%;padding:11px;background:transparent;color:var(--muted);
+  border:2px solid #eee;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--fb)}
+
+/* TOAST */
+.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(16px);
+  background:var(--dark);color:#fff;padding:12px 22px;border-radius:28px;
+  font-size:14px;font-weight:600;z-index:999;opacity:0;transition:all .3s;pointer-events:none;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* CART FAB MOBILE */
+.cart-fab{display:none;position:fixed;bottom:20px;right:18px;z-index:400;
+  background:var(--pr);color:#fff;border-radius:50%;width:56px;height:56px;
+  font-size:24px;border:none;cursor:pointer;
+  align-items:center;justify-content:center;
+  box-shadow:0 4px 18px rgba(192,57,43,.5)}
+.cart-fab-count{position:absolute;top:4px;right:4px;background:#f39c12;color:#fff;
+  border-radius:50%;width:18px;height:18px;font-size:10px;display:none;
+  align-items:center;justify-content:center;font-weight:800}
+
+  /* ============================================================
+   RESPONSIVE — Mobile
+   ============================================================ */
+@media(max-width:768px){
+  body,html{overflow-x:hidden}
+
+  /* NAV MOBILE */
+  nav{padding:0 14px;height:56px;position:relative}
+  .logo span{font-size:15px}
+  .logo-ic{width:32px;height:32px;font-size:16px}
+  .nav-links{
+    display:none;
+    flex-direction:column;
+    position:absolute;top:56px;left:0;right:0;
+    background:rgba(250,247,242,.98);
+    backdrop-filter:blur(12px);
+    border-bottom:2px solid rgba(192,57,43,.15);
+    padding:12px 0;gap:0;
+    z-index:300;box-shadow:0 8px 24px rgba(44,24,16,.12)
+  }
+  .nav-links.open{display:flex}
+  .nav-links li{width:100%}
+  .nav-links a{display:block;padding:13px 20px;font-size:15px;font-weight:600;
+    border-bottom:1px solid rgba(192,57,43,.06)}
+  .nav-links a:last-child{border-bottom:none}
+  .ham-btn{display:flex}
+  /* Sembunyikan tombol WA dan cart di nav desktop, pakai FAB */
+  .nav-right{gap:6px}
+  .nav-right .btn-f{display:none}
+  .cart-btn-nav{display:none}
+  /* Tampilkan cart FAB */
+  .cart-fab{display:flex}
+
+  /* HERO */
+  .hero{min-height:380px}
+  .hero-content{padding:30px 18px}
+  .hero-content h1{font-size:26px;line-height:1.2}
+  .hero-content p{font-size:13px;max-width:100%}
+  .hero-btns{flex-direction:column;gap:10px}
+  .hbtn-main,.hbtn-sec{width:100%;text-align:center;padding:13px}
+
+  /* GRIDS */
+  .grid4{grid-template-columns:repeat(2,1fr);gap:12px}
+  .grid3{grid-template-columns:repeat(2,1fr);gap:12px}
+  .grid-auto{grid-template-columns:repeat(2,1fr);gap:12px}
+  .testi-grid{grid-template-columns:1fr;gap:14px}
+  .val-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .vgrid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .con-grid{grid-template-columns:1fr;gap:24px}
+  .auth-lay{grid-template-columns:1fr}
+  .auth-l{display:none}
+  .auth-r{padding:32px 20px}
+  .team-grid{grid-template-columns:repeat(2,1fr);gap:18px}
+  .story-grid{grid-template-columns:1fr;gap:28px}
+  .ft-grid{grid-template-columns:1fr 1fr;gap:18px}
+  .ft-brand{grid-column:1/-1}
+
+  /* PROMO CARD */
+  .pcard{grid-template-columns:1fr}
+  .pcard-img{min-height:180px}
+  .pcard-body{padding:18px}
+  .pct{font-size:26px}
+  .ptitle{font-size:16px}
+
+  /* PAGE HEADER */
+  .pg-hd{padding:32px 18px}
+  .pg-hd h1{font-size:26px}
+
+  /* SECTION */
+  .sec{padding:36px 16px}
+  .sec-hd h2{font-size:24px}
+  .sec-hd{margin-bottom:24px}
+  .filter-bar{padding:20px 16px 4px;gap:8px}
+  .fb{padding:7px 16px;font-size:13px}
+
+  /* FOOTER */
+  footer{padding:32px 16px 80px}
+  .ft-grid{margin-bottom:20px}
+  .ft-col h4{font-size:13px}
+
+  /* MODAL */
+  .mbox,.co-mbox{width:96%;padding:24px 18px}
+
+  /* CART DRAWER */
+  .cart-sidebar{width:100%;max-width:100%;right:-100%}
+
+  /* MAP */
+  .map-box{height:240px;margin-top:28px}
+
+  /* AUTH */
+  .auth-lay{min-height:auto}
+
+  /* TOAST position above FAB */
+  .toast{bottom:90px}
+}
+
+@media(max-width:480px){
+  .grid4,.grid3,.grid-auto{grid-template-columns:1fr}
+  .val-grid{grid-template-columns:repeat(2,1fr)}
+  .vgrid{grid-template-columns:1fr 1fr}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+  .hero{min-height:340px}
+  .hero-content h1{font-size:22px}
+  .hero-badge{font-size:10px;padding:5px 12px}
+  .pg-hd h1{font-size:20px}
+  .sec{padding:26px 14px}
+  .sec-hd h2{font-size:20px}
+  .mcard-img{height:160px}
+  .mcard-body{padding:12px 14px 14px}
+  .ft-grid{grid-template-columns:1fr;gap:14px}
+  .ft-brand{grid-column:auto}
+  .map-box{height:200px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <div class="logo" onclick="goPg('home',null)">
+    <div class="logo-ic"><img src="logo.jpeg" alt="logo" onerror="this.style.display='none'"/>🍗</div>
+    <span>Kedai Meeoong</span>
+  </div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a class="on" onclick="goPg('home',this)">Home</a></li>
+    <li><a onclick="goPg('menu',this)">Menu</a></li>
+    <li><a onclick="goPg('promo',this)">Promo</a></li>
+    <li><a onclick="goPg('about',this)">Tentang Kami</a></li>
+    <li><a onclick="goPg('contact',this)">Kontak</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <button class="cart-btn-nav" onclick="toggleCart()" title="Keranjang">
+      🛒<span class="cart-count" id="cartCountNav">0</span>
+    </button>
+    <a href="https://wa.me/6282399205798?text=Halo%20Kedai%20Meeoong%2C%20saya%20ingin%20bertanya%20%F0%9F%8D%97" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;background:#25D366;border-radius:50%;flex-shrink:0" title="Chat WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.857L.057 23.882a.5.5 0 0 0 .612.612l6.025-1.475A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.013-1.376l-.36-.214-3.724.912.932-3.614-.235-.373A9.818 9.818 0 1 1 12 21.818z"/>
+  </svg>
+</a>
+    <button class="ham-btn" id="hamBtn" onclick="toggleNav()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- CART FAB (mobile) -->
+<button class="cart-fab" id="cartFab" onclick="toggleCart()">
+  🛒<span class="cart-fab-count" id="cartCountFab">0</span>
+</button>
+
+<!-- ===== CART SIDEBAR ===== -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-hd">
+    <h3>🛒 Keranjang</h3>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <div class="cart-empty-ic">🛒</div>
+      <p>Keranjang masih kosong.<br>Yuk pilih menu dulu!</p>
+    </div>
+  </div>
+  <div class="cart-ft" id="cartFt" style="display:none">
+    <div class="cart-total">
+      <span>Total</span>
+      <strong id="cartTotal">Rp 0</strong>
+    </div>
+    <button class="checkout-btn" onclick="openCheckout()">Pesan Sekarang →</button>
+  </div>
+</div>
+
+<!-- ===== VOUCHER MODAL ===== -->
+<div class="modal-ov" id="voucherModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="mbox">
+    <div class="mbox-ic" id="mIcon">🎁</div>
+    <h3 id="mTitle">Voucher Diklaim!</h3>
+    <p id="mDesc">Tunjukkan kode ini ke kasir saat pemesanan.</p>
+    <div class="mcode-box">
+      <div class="mcode-lbl">Kode Voucher Kamu</div>
+      <div class="mcode-val" id="mCode">HEMAT5</div>
+    </div>
+    <button class="m-copy" onclick="copyVoucher()">📋 Salin Kode</button>
+    <button class="m-close" onclick="document.getElementById('voucherModal').classList.remove('open')">Tutup</button>
+  </div>
+</div>
+
+<!-- ===== CHECKOUT MODAL ===== -->
+<div class="modal-ov" id="checkoutModal" onclick="if(event.target===this)closeCheckout()">
+  <div class="co-mbox" id="coBox">
+    <h3>🧾 Konfirmasi Pesanan</h3>
+    <p>Periksa pesanan kamu sebelum dikirim ke WhatsApp penjual</p>
+    <div class="co-summary" id="coSummary"></div>
+    <input class="co-input" id="coName" placeholder="Nama lengkap kamu" />
+    <input class="co-input" id="coPhone" placeholder="Nomor WhatsApp / HP kamu" />
+    <div class="co-vfield">
+      <input id="coVoucher" placeholder="Kode voucher (opsional)" />
+      <button onclick="applyVoucher()">Pakai</button>
+    </div>
+    <div class="v-status" id="vStatus"></div>
+    <button class="co-order-btn" onclick="placeOrder()">✅ Kirim Pesanan ke WhatsApp</button>
+    <button class="co-cancel" onclick="closeCheckout()">Batal</button>
+  </div>
+</div>
+
+<!-- ===== TOAST ===== -->
+<div class="toast" id="toast"></div>
+
+<!-- ============================================================ -->
+<!-- PAGE: HOME -->
+<!-- ============================================================ -->
+<div id="page-home" class="page on">
+  <div class="hero">
+    <div class="hero-imgbox">
+      <img src="all menu land.jpeg" alt="hero" onerror="this.style.opacity='0'"/>
+    </div>
+    <div class="hero-ov"></div>
+    <div class="hero-content">
+      <div class="hero-badge">🍗 Kedai Keluarga Ambon</div>
+      <h1>Ayam Tacolo &amp;<br><span>Chicken Katsu</span><br>Terenak di Ambon</h1>
+      <p>Ayam Tacolo 5 varian saos, Chicken Katsu crispy, Ayam Rambut Setan pedas segar, Ayam Bakar Dimadu manis gurih, dan Nasi Goreng Veteran — semua diracik dengan cinta oleh keluarga kami!</p>
+      <div class="hero-btns">
+        <button class="hbtn-main" onclick="goPg('menu',null)">Lihat Menu →</button>
+        <button class="hbtn-sec" onclick="goPg('promo',null)">Lihat Promo</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-hd">
+      <div class="eyebrow">Menu Terpopuler</div>
+      <h2>Menu Unggulan Kami</h2>
+      <p>Pilihan terbaik dari Kedai Meeoong, dimasak dengan penuh rasa dan bahan segar pilihan setiap harinya</p>
+    </div>
+    <div class="grid4">
+      <div class="mcard">
+        <div class="mcard-img"><img src="all ayam tacolo.jpeg" alt="Ayam Tacolo" onerror="this.style.display='none'"/><div class="img-ph"><span class="img-ph-icon">🍗</span>FOTO AYAM TACOLO</div></div>
+        <div class="mcard-body"><div class="cat">Ayam Tacolo</div><h3>Ayam Tacolo</h3><p>5 pilihan saos istimewa khas Ambon yang bikin nagih setiap gigitan!</p><div class="vtags"><span class="vt">BBQ</span><span class="vt">Pedas</span><span class="vt">Keju</span><span class="vt">BlackPaper</span><span class="vt">Ayam Bakar</span></div><div class="card-foot"><span class="price">Rp 20.000</span><span class="stars">★ 4.9</span></div><button class="add-btn" onclick="addCart('Ayam Tacolo',20000,this)">+ Tambah ke Keranjang</button></div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-img"><img src="all chiken katsu.jpeg" alt="Chicken Katsu" onerror="this.style.display='none'"/><div class="img-ph"><span class="img-ph-icon">🥩</span>FOTO CHICKEN KATSU</div></div>
+        <div class="mcard-body"><div class="cat">Chicken Katsu</div><h3>Chicken Katsu</h3><p>Katsu crispy renyah dengan 3 pilihan saos spesial yang menggugah selera!</p><div class="vtags"><span class="vt">Sambal Matah</span><span class="vt">Pedas</span><span class="vt">BlackPaper</span></div><div class="card-foot"><span class="price">Rp 25.000</span><span class="stars">★ 4.8</span></div><button class="add-btn" onclick="addCart('Chicken Katsu',25000,this)">+ Tambah ke Keranjang</button></div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-img"><img src="pop ice boba.jpeg" alt="Pop Ice" onerror="this.style.display='none'"/><div class="img-ph"><span class="img-ph-icon">🧋</span>FOTO POP ICE</div></div>
+        <div class="mcard-body"><div class="cat">Minuman</div><h3>Pop Ice Aneka Rasa</h3><p>Minuman dingin segar tersedia dalam berbagai rasa yang menyegarkan!</p><div class="card-foot"><span class="price">Rp 8.000</span><span class="stars">★ 4.7</span></div><button class="add-btn" onclick="addCart('Pop Ice',8000,this)">+ Tambah ke Keranjang</button></div>
+      </div>
+      <div class="mcard">
+        <div class="mcard-img"><img src="sticky milk.jpeg" alt="Sticky Milk" onerror="this.style.display='none'"/><div class="img-ph"><span class="img-ph-icon">🥛</span>FOTO STICKY MILK</div></div>
+        <div class="mcard-body"><div class="cat">Minuman</div><h3>Sticky Milk</h3><p>Susu kental manis creamy dengan tekstur thick yang lembut, legit, dan bikin ketagihan!</p><div class="card-foot"><span class="price">Rp 7.000</span><span class="stars">★ 4.7</span></div><button class="add-btn" onclick="addCart('Sticky Milk',7000,this)">+ Tambah ke Keranjang</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec sec-alt">
+    <div class="sec-hd">
+      <div class="eyebrow">Testimoni</div>
+      <h2>Kata Pelanggan Kami</h2>
+      <p>Lebih dari ratusan pelanggan puas menikmati hidangan khas keluarga Kedai Meeoong</p>
+    </div>
+    <div class="testi-grid">
+      <div class="tc"><div class="qmark">❝</div><p>Ayam Tacolonya enak banget! Bumbunya meresap sempurna, pedas gurih pas banget. Ibu dan kakaknya ramah sekali. Pasti balik lagi!</p><div class="tc-name">Amel</div><div class="tc-stars">★★★★★</div></div>
+      <div class="tc"><div class="qmark">❝</div><p>Chicken katsuny krispy dan sausnya juara. Harga sangat terjangkau untuk rasa yang luar biasa. Kedai keluarga terbaik di Poka Ambon!</p><div class="tc-name">Raffa</div><div class="tc-stars">★★★★★</div></div>
+      <div class="tc"><div class="qmark">❝</div><p>Ayam Rambut Setannya beneran nagih! Pedasnya pas, aroma kemanginya segar banget. Sama Ayam Bakar Dimadu-nya juga enak, manisnya pas dari madu asli. Wajib coba!</p><div class="tc-name">Aura</div><div class="tc-stars">★★★★★</div></div>     
+      <div class="tc"><div class="qmark">❝</div><p>Nasi Gorengnya enak dan harganya terjangkau banget! Porsinya puas, bumbunya meresap. Pelayanannya ramah seperti makan di rumah sendiri. Suka banget!</p><div class="tc-name">Daffa</div><div class="tc-stars">★★★★★</div></div>      
+      <div class="tc"><div class="qmark">❝</div><p>Pop Ice sama Sticky Milk-nya enak parah! Seger banget diminum pas panas-panasan. Harganya murah meriah, cocok buat nemenin makan Ayam Tacolo. Fix jadi langganan!</p><div class="tc-name">Sipyan</div><div class="tc-stars">★★★★★</div></div>       
+      <div class="tc"><div class="qmark">❝</div><p>Suasananya asik banget, vibes-nya homey dan bikin betah lama-lama. Tempatnya bersih, pelayanannya ramah kayak makan di rumah temen. Minumannya juga hits, kopi susunya recommended!</p><div class="tc-name">Zaky</div><div class="tc-stars">★★★★★</div></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="promo-banner">
+      <h2>🎉 Promo Spesial Setiap Jumat!</h2>
+      <p>Khusus setiap Jumat, dapatkan diskon 15% untuk pembelian pertama Anda. Gunakan kode di bawah ini saat checkout!</p>
+      <div class="pcode">TACOLO15</div>
+    </div>
+  </div>
+
+  <div class="sec sec-alt">
+    <div class="sec-hd">
+      <div class="eyebrow">Layanan Kami</div>
+      <h2>🎪 Terima Pesanan Bazar & Event</h2>
+      <p>Kedai Meeoong hadir tidak hanya di kedai — kami siap melayani berbagai kebutuhan acara Anda!</p>
+    </div>
+    <div class="grid3">
+      <div class="val-card">
+        <div class="val-ic">🎪</div>
+        <h3>Pesanan Bazar</h3>
+        <p>Kami siap hadir di bazar, pameran, dan event lokal dengan booth Kedai Meeoong. Hubungi kami minimal 3 hari sebelum acara.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-ic">🎉</div>
+        <h3>Pesanan Acara &amp; Pesta</h3>
+        <p>Catering untuk arisan, ulang tahun, pernikahan, syukuran, dan berbagai acara keluarga maupun kantor. Min. 20 porsi.</p>
+      </div>
+      <div class="val-card">
+        <div class="val-ic">📦</div>
+        <h3>Pesanan dalam Jumlah Besar</h3>
+        <p>Tersedia paket pesanan massal dengan harga spesial. Cocok untuk instansi, kantor, sekolah, dan komunitas.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:28px">
+      <button class="hbtn-main" onclick="openWA('Halo Kedai Meeoong, saya ingin tanya soal pesanan bazar/event/catering 🍗')">Hubungi Kami untuk Pesan Event →</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="ft-grid">
+      <div class="ft-brand"><div class="ft-logo"><div class="logo-ic"><img src="logo.jpeg" alt="logo" onerror="this.style.display='none'"/>🍗</div><span>Kedai Meeoong</span></div><p>Kedai keluarga kami menyajikan Ayam Tacolo dan Chicken Katsu lezat dengan pelayanan hangat penuh kasih sayang.</p></div>
+      <div class="ft-col"><h4>Tautan Cepat</h4><a onclick="goPg('home',null)">Home</a><a onclick="goPg('menu',null)">Menu</a><a onclick="goPg('promo',null)">Promo</a><a onclick="goPg('about',null)">Tentang Kami</a></div>
+      <div class="ft-col"><h4>Kontak</h4><div class="ft-ci"><span class="ft-ci-ic">📍</span><span>Jl. J. Syaranamual RT/RW 005/002, Poka, Kec. Teluk Ambon, Kota Ambon, Maluku 97233</span></div></div>
+      <div class="ft-col"><h4>Ikuti Kami</h4><div class="ft-soc"><div class="fsoc"><img src="fb.jpg" alt="fb" onerror="this.style.display='none'"/>f</div><div class="fsoc"><img src="ig.jpg" alt="ig" onerror="this.style.display='none'"/>ig</div></div></div>
+    </div>
+    <div class="ft-bottom">© 2026 Kedai Meeoong Ambon. Semua hak dilindungi.</div>
+  </footer>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: MENU -->
+<!-- ============================================================ -->
+<div id="page-menu" class="page">
+  <div class="pg-hd">
+    <div class="pg-hd-bg"><img src="chiken saos.jpeg" alt="" onerror="this.style.display='none'"/></div>
+    <h1>Menu Kami</h1>
+    <p>Semua hidangan dimasak segar setiap hari dengan bumbu pilihan keluarga</p>
+  </div>
+
+  <div class="filter-bar">
+    <button class="fb on" onclick="scrollSec('sec-tacolo',this)">🍗 Ayam Tacolo</button>
+    <button class="fb" onclick="scrollSec('sec-katsu',this)">🥩 Chicken Katsu</button>
+    <button class="fb" onclick="scrollSec('sec-lauk',this)">🍽️ Menu Spesial</button>
+    <button class="fb" onclick="scrollSec('sec-minuman',this)">🥤 Minuman</button>
+  </div>
+
+  <div class="sec" id="sec-tacolo">
+    <div class="sec-hd">
+      <div class="eyebrow">Ayam Tacolo</div>
+      <h2>🍗 Ayam Tacolo — 5 Varian</h2>
+      <p>Hidangan ayam khas keluarga dengan 5 pilihan saos istimewa yang bikin ketagihan</p>
+    </div>
+    <div class="grid-auto">
+      <div class="mcard"><div class="mcard-img"><img src="ayam tacolo bbq.jpeg" onerror="this.style.display='none'"/><div class="img-ph"><span class="img-ph-icon">🍗</span>TACOLO BBQ</div></div><div class="mcard-body"><div class="cat">Ayam Tacolo</div><h3>Ayam Tacolo Saos BBQ</h3><p>Saos BBQ manis gurih yang khas, perpaduan sempurna dengan ayam empuk Tacolo.</p><div class="vtags"><span class="vt">BBQ</span></div><div class="card-foot"><span class="price">Rp 20.000</span><span class="stars">★ 4.9</span></div><button class="add-btn" onclick="addCart('Ayam Tacolo BBQ',20000,this)">+ Tambah ke Keranjang</button></div></div>
+      <div class="mcard"><div class="mcard-img"><img src="ayam tacolo pedas.jpeg" onerror="this.style.display='none'"/><div class="img-ph"><span class="img-ph-icon">🌶️</span>TACOLO PEDAS</div></div><div class="mcard-body"><div class="cat">Ayam Tacolo</div><h3>Ayam Tacolo Saos Pedas</h3><p>Saos pedas level mantap yang bikin lidah menari. Cocok buat kamu yang suka tantangan!</p><div class="vtags"><span class="vt">Pedas</span></div><div class="card-foot"><span class="price">Rp 20.000</span><span class="stars">★ 4.9</span></div><button class="add-btn" onclick="addCart('Ayam Tacolo Pedas',20000,this)">+ Tambah ke Keranjang</button></div></div>
+      <div class="mcard"><div class="mcard-img"><img src="ayam tacolo keju.jpeg" onerror="this.style.display='none'"/><div class="img-ph"><span class="img-ph-icon">🧀</span>TACOLO KEJU</div></div><div class="mcard-body"><div class="cat">Ayam Tacolo</div><h3>Ayam Tacolo Saos Keju</h3><p>Lelehan keju creamy yang gurih membalut ayam empuk. Favorit anak-anak dan keluarga!</p><div class="vtags"><span class="vt">Keju</span></div><div class="card-foot"><span class="price">Rp 20.000</span><span class="stars">★ 4.8</span></div><button class="add-btn" onclick="addCart('Ayam Tacolo Keju',20000,this)">+ Tambah ke Keranjang</button></div></div>
+      <div class="mcard"><div class="mcard-img"><img src="ayam tacolo blackpeper.jpeg" onerror="this.style.display='none'"/><div class="img-ph"><span class="img-ph-icon">⚫</span>TACOLO BLACKPAPER</div></div><div class="mcard-body"><div class="cat">Ayam Tacolo</div><h3>Ayam Tacolo BlackPaper</h3><p>Saos lada hitam aromatik yang kaya rempah. Pedas hangat dan beraroma kuat!</p><div class="vtags"><span class="vt">BlackPaper</span></div><div class="card-foot"><span class="price">Rp 20.000</span><span class="stars">★ 4.9</span></div><button class="add-btn" onclick="addCart('Ayam Tacolo BlackPaper',20000,this)">+ Tambah ke Keranjang</button></div></div>
+      <div class="mcard"><div class="mcard-img"><img src="ayam tacolo ayam bakar.jpeg" onerror="this.style.display='none'"/><div class="img-ph"><span class="img-ph-icon">🔥</span>TACOLO AYAM BAKAR</div></div><div class="mcard-body"><div class="cat">Ayam Tacolo</div><h3>Ayam Tacolo Saos Ayam Bakar</h3><p>Cita rasa ayam bakar tradisional dalam bentuk saos smoky dan harum rempah. Otentik dan lezat!</p><div class="vtags"><span class="vt">Saos Ayam Bakar</span></div><div class="card-foot"><span class="price">Rp 20.000</span><span class="stars">★ 4.9</span></div><button class="add-btn" onclick="addCart('Ayam Tacolo Saos Ayam Bakar',20000,this)">+ Tambah ke Keranjang</button></div></div>
+    </div>
+  </div>
+
+  <div class="sec sec-alt" id="sec-katsu">
+    <div class="sec-hd">
+      <div class="eyebrow">Chicken Katsu</div>
+      <h2>🥩 Chicken Katsu — 3 Varian</h2>
+      <p>Ayam fillet crispy ala katsu dengan 3 pilihan saos istimewa yang bikin ketagihan</p>
+    </div>
+    <div class="grid3">
+      <div class="mcard"><div class="mcard-img"><img src="chiken katsu sambal matah.jpeg" onerror="this.style.display='none'"/><div class="img-ph"><span class="img-ph-icon">🥩</span>KATSU SAMBAL MATAH</div></div><div class="mcard-body"><div class="cat">Chicken Katsu</div><h3>Chicken Katsu Sambal Matah</h3><p>Katsu crispy dipadukan dengan sambal matah segar khas Bali yang aromatik.</p><div class="vtags"><span class="vt">Sambal Matah</span></div><div class="card-foot"><span class="price">Rp 25.000</span><span class="stars">★ 4.8</span></div><button class="add-btn" onclick="addCart('Chicken Katsu Sambal Matah',25000,this)">+ Tambah ke Keranjang</button></div></div>
+      <div class="mcard"><div class="mcard-img"><img src="chiken katsu pedas.jpeg" onerror="this.style.display='none'"/><div class="img-ph"><span class="img-ph-icon">🌶️</span>KATSU PEDAS</div></div><div class="mcard-body"><div class="cat">Chicken Katsu</div><h3>Chicken Katsu Pedas</h3><p>Katsu dengan saos pedas spesial yang menendang. Renyah di luar, juicy di dalam!</p><div class="vtags"><span class="vt">Pedas</span></div><div class="card-foot"><span class="price">Rp 25.000</span><span class="stars">★ 4.8</span></div><button class="add-btn" onclick="addCart('Chicken Katsu Pedas',25000,this)">+ Tambah ke Keranjang</button></div></div>
+      <div class="mcard"><div class="mcard-img"><img src="chiken katsu blackpeper.jpeg" onerror="this.style.display='none'"/><div class="img-ph"><span class="img-ph-icon">⚫</span>KATSU BLACKPAPER</div></div><div class="mcard-body"><div class="cat">Chicken Katsu</div><h3>Chicken Katsu BlackPaper</h3><p>Katsu crispy dengan saos lada hitam kaya rempah, pedas hangat, dan beraroma kuat!</p><div class="vtags"><span class="vt">BlackPaper</span></div><div class="card-foot"><span class="price">Rp 25.000</span><span class="stars">★ 4.9</span></div><button class="add-btn" onclick="addCart('Chicken Katsu BlackPaper',25000,this)">+ Tambah ke Keranjang</button></div></div>
+    </div>
+  </div>
+
+  <div class="sec" id="sec-lauk">
+    <div class="sec-hd">
+      <div class="eyebrow">Menu Spesial</div>
+      <h2>🍽️ Menu Spesial Lainnya</h2>
+      <p>Hidangan istimewa pilihan Kedai Meeoong yang wajib kamu coba!</p>
+    </div>
+    <div class="grid-auto">
+      <div class="mcard"><div class="mcard-img"><img src="ayam rambut setan.jpeg" onerror="this.style.display='none'"/><div class="img-ph"><span class="img-ph-icon">🌶️</span>AYAM RAMBUT SETAN</div></div><div class="mcard-body"><div class="cat">Menu Spesial</div><h3>Ayam Rambut Setan</h3><p>Olahan ayam dengan cabe, kol, dan kemangi resep rahasia. Pedas, segar, dan bikin nagih!</p><div class="vtags"><span class="vt">Pedas</span><span class="vt">Resep Rahasia</span></div><div class="card-foot"><span class="price">Rp 30.000</span><span class="stars">★ 5.0</span></div><button class="add-btn" onclick="addCart('Ayam Rambut Setan',30000,this)">+ Tambah ke Keranjang</button></div></div>
+      <div class="mcard"><div class="mcard-img"><img src="ayam bakar dimadu.jpeg" onerror="this.style.display='none'"/><div class="img-ph"><span class="img-ph-icon">🍯</span>AYAM BAKAR MADU</div></div><div class="mcard-body"><div class="cat">Menu Spesial</div><h3>Ayam Bakar Dimadu</h3><p>Ayam bakar dengan olesan madu istimewa, perpaduan rasa gurih, manis, dan sedikit karamel.</p><div class="vtags"><span class="vt">Manis</span><span class="vt">Madu</span></div><div class="card-foot"><span class="price">Rp 30.000</span><span class="stars">★ 4.9</span></div><button class="add-btn" onclick="addCart('Ayam Bakar Dimadu',30000,this)">+ Tambah ke Keranjang</button></div></div>
+      <div class="mcard"><div class="mcard-img"><img src="nasi goreng.jpeg" onerror="this.style.display='none'"/><div class="img-ph"><span class="img-ph-icon">🍳</span>NASI GORENG VETERAN</div></div><div class="mcard-body"><div class="cat">Menu Spesial</div><h3>Nasi Goreng Veteran</h3><p>Nasi Goreng Veteran dengan bumbu spesial pilihan Kedai Meeoong, berbagai varian sesuai selera!</p><div class="vtags"><span class="vt">Nasi</span><span class="vt">Spesial</span></div><div class="card-foot"><span class="price">Mulai Rp 18.000</span><span class="stars">★ 4.8</span></div><button class="add-btn" onclick="addCart('Nasi Goreng Veteran',18000,this)">+ Tambah ke Keranjang</button></div></div>
+    </div>
+  </div>
+
+  <div class="sec sec-alt" id="sec-minuman">
+    <div class="sec-hd">
+      <div class="eyebrow">Minuman</div>
+      <h2>🥤 Minuman Segar</h2>
+      <p>Pilihan minuman yang menyegarkan untuk menemani hidangan Anda</p>
+    </div>
+    <div class="grid4">
+      <div class="mcard"><div class="mcard-img"><img src="pop ice boba.jpeg" onerror="this.style.display='none'"/><div class="img-ph"><span class="img-ph-icon">🧋</span>POP ICE</div></div><div class="mcard-body"><div class="cat">Minuman</div><h3>Pop Ice Aneka Rasa</h3><p>Pop Ice dalam berbagai rasa: coklat, strawberry, melon, mangga, dan banyak lagi!</p><div class="card-foot"><span class="price">Rp 8.000</span><span class="stars">★ 4.7</span></div><button class="add-btn" onclick="addCart('Pop Ice',8000,this)">+ Tambah ke Keranjang</button></div></div>
+      <div class="mcard"><div class="mcard-img"><img src="sticky milk.jpeg" onerror="this.style.display='none'"/><div class="img-ph"><span class="img-ph-icon">🥛</span>STICKY MILK</div></div><div class="mcard-body"><div class="cat">Minuman</div><h3>Sticky Milk</h3><p>Susu kental manis creamy dengan tekstur thick yang lembut dan legit. Dingin dan bikin ketagihan!</p><div class="card-foot"><span class="price">Rp 7.000</span><span class="stars">★ 4.8</span></div><button class="add-btn" onclick="addCart('Sticky Milk',7000,this)">+ Tambah ke Keranjang</button></div></div>
+      <div class="mcard"><div class="mcard-img"><img src="kopi.jpeg" onerror="this.style.display='none'"/><div class="img-ph"><span class="img-ph-icon">☕</span>KOPI</div></div><div class="mcard-body"><div class="cat">Minuman</div><h3>Kopi Hitam / Kopi Susu</h3><p>Kopi hitam pekat atau kopi susu lembut harum. Penyemangat hari kamu!</p><div class="card-foot"><span class="price">Rp 6.000</span><span class="stars">★ 4.7</span></div><button class="add-btn" onclick="addCart('Kopi',6000,this)">+ Tambah ke Keranjang</button></div></div>
+      <div class="mcard"><div class="mcard-img"><img src="teh.jpeg" onerror="this.style.display='none'"/><div class="img-ph"><span class="img-ph-icon">🍵</span>TEH</div></div><div class="mcard-body"><div class="cat">Minuman</div><h3>Teh Manis / Tawar</h3><p>Teh segar menyejukkan, hangat maupun dingin. Teman makan yang pas!</p><div class="card-foot"><span class="price">Rp 4.000</span><span class="stars">★ 4.5</span></div><button class="add-btn" onclick="addCart('Teh',4000,this)">+ Tambah ke Keranjang</button></div></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="ft-grid">
+      <div class="ft-brand"><div class="ft-logo"><div class="logo-ic"><img src="logo.jpeg" alt="logo" onerror="this.style.display='none'"/>🍗</div><span>Kedai Meeoong</span></div><p>Kedai keluarga kami menyajikan Ayam Tacolo dan Chicken Katsu lezat dengan pelayanan hangat penuh kasih sayang.</p></div>
+      <div class="ft-col"><h4>Tautan Cepat</h4><a onclick="goPg('home',null)">Home</a><a onclick="goPg('menu',null)">Menu</a><a onclick="goPg('promo',null)">Promo</a><a onclick="goPg('about',null)">Tentang Kami</a></div>
+      <div class="ft-col"><h4>Kontak</h4><div class="ft-ci"><span class="ft-ci-ic">📍</span><span>Jl. J. Syaranamual RT/RW 005/002, Poka, Kec. Teluk Ambon, Kota Ambon, Maluku 97233</span></div></div>
+      <div class="ft-col"><h4>Ikuti Kami</h4><div class="ft-soc"><div class="fsoc">f</div><div class="fsoc">ig</div></div></div>
+    </div>
+    <div class="ft-bottom">© 2026 Kedai Meeoong Ambon. Semua hak dilindungi.</div>
+  </footer>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: PROMO -->
+<!-- ============================================================ -->
+<div id="page-promo" class="page">
+  <div class="pg-hd">
+    <div class="pg-hd-bg"><img src="suasana luar2.jpeg" alt="" onerror="this.style.display='none'"/></div>
+    <h1>Promo Spesial</h1>
+    <p>Hemat lebih banyak dengan penawaran eksklusif dari Kedai Meeoong</p>
+  </div>
+
+  <div class="sec">
+    <div class="pcard">
+      <div class="pcard-img" style="background:linear-gradient(135deg,#C0392B,#E67E22)"><img src="all food.jpeg" style="height:100%" onerror="this.style.display='none'"/></div>
+      <div class="pcard-body"><div class="pct">15% OFF</div><div class="ptitle">Promo Pelanggan Baru</div><div class="pdesc">Diskon 15% khusus untuk pembelian pertama. <strong>Hanya berlaku 1x per nomor HP</strong> — setelah pernah dipakai, kode tidak bisa digunakan lagi dari nomor yang sama.</div><div class="codebox"><div class="cl">Kode Promo</div><div class="cv">TACOLO15</div></div><span class="valid">⏰ Berlaku: Setiap hari • 1x per nomor HP</span><button class="copy-code-btn" onclick="copyPromoCode('TACOLO15',this)">📋 Salin Kode</button></div>
+    </div>
+    <div class="pcard">
+      <div class="pcard-img" style="background:linear-gradient(135deg,#E67E22,#F39C12)"><img src="all chiken katsu land.jpeg" style="height:100%" onerror="this.style.display='none'"/></div>
+      <div class="pcard-body"><div class="pct">Beli 2 Gratis 1</div><div class="ptitle">Promo Chicken Katsu Weekend</div><div class="pdesc">Beli 2 porsi Chicken Katsu di Sabtu/Minggu, gratis 1 Pop Ice! <strong>Stok terbatas 50 porsi/hari</strong> — sistem otomatis menutup promo jika stok habis. Sisa stok ditampilkan saat pakai kode.</div><div class="codebox"><div class="cl">Kode Promo</div><div class="cv">KATSUWEEK</div></div><span class="valid">⏰ Hanya Sabtu &amp; Minggu • Stok 50 porsi/hari</span><button class="copy-code-btn" onclick="copyPromoCode('KATSUWEEK',this)">📋 Salin Kode</button></div>
+    </div>
+    <div class="pcard">
+      <div class="pcard-img" style="background:linear-gradient(135deg,#27AE60,#2ECC71)"><img src="all menu land.jpeg" style="height:100%" onerror="this.style.display='none'"/></div>
+      <div class="pcard-body"><div class="pct">Gratis Minuman</div><div class="ptitle">Paket Hemat Keluarga</div><div class="pdesc">Pesan <strong>minimal 4 porsi makanan</strong>, otomatis gratis 4 minuman (teh/susu/kopi) senilai Rp 16.000! Berlaku setiap hari tanpa batas kuota.</div><div class="codebox"><div class="cl">Kode Promo</div><div class="cv">KELUARGA4</div></div><span class="valid">⏰ Setiap hari • Min. 4 porsi makanan</span><button class="copy-code-btn" onclick="copyPromoCode('KELUARGA4',this)">📋 Salin Kode</button></div>
+    </div>
+  </div>
+
+  <div class="sec sec-alt">
+    <div class="sec-hd">
+      <div class="eyebrow">Voucher</div>
+      <h2>Voucher Tersedia</h2>
+      <p>Klaim voucher di sini, lalu gunakan kodenya saat checkout atau tunjukkan ke kasir</p>
+    </div>
+    <div class="vgrid">
+      <div class="vcard" id="vc-HEMAT5"><div class="vi">🎁</div><h3>Diskon Rp 5.000</h3><p>Min. belanja <strong>Rp 20.000</strong></p><div class="vcode-badge">HEMAT5</div><br><button class="claim-btn" onclick="klaimVoucher('HEMAT5','Diskon Rp 5.000','🎁','vc-HEMAT5',this)">Klaim Voucher</button></div>
+      <div class="vcard" id="vc-FREEPOP"><div class="vi">🥤</div><h3>Gratis Pop Ice</h3><p>Min. belanja <strong>Rp 30.000</strong></p><div class="vcode-badge">FREEPOP</div><br><button class="claim-btn" onclick="klaimVoucher('FREEPOP','Gratis Pop Ice','🥤','vc-FREEPOP',this)">Klaim Voucher</button></div>
+      <div class="vcard" id="vc-SETIA10"><div class="vi">💝</div><h3>Diskon 10%</h3><p>Khusus pelanggan <strong>min. 3x pesan</strong></p><div class="vcode-badge">SETIA10</div><br><button class="claim-btn" onclick="klaimVoucher('SETIA10','Diskon 10% Pelanggan Setia','💝','vc-SETIA10',this)">Klaim Voucher</button></div>
+      <div class="vcard" id="vc-FREETEH"><div class="vi">🎉</div><h3>Gratis Teh/Kopi</h3><p>Min. belanja <strong>Rp 20.000</strong></p><div class="vcode-badge">FREETEH</div><br><button class="claim-btn" onclick="klaimVoucher('FREETEH','Gratis Teh/Kopi','🎉','vc-FREETEH',this)">Klaim Voucher</button></div>
+    </div>
+  </div>
+
+  <div class="sec"><div class="loyalty">
+    <h2>🏆 Jadilah Pelanggan Setia Kami</h2>
+    <p>Kumpulkan poin setiap kali Anda makan di Kedai Meeoong dan dapatkan hadiah menarik!<br>Semakin sering berkunjung, semakin banyak keuntungan yang Anda dapatkan.</p>
+    <button class="loyalty-btn" onclick="openWA('Halo Kedai Meeoong, saya ingin bergabung sebagai pelanggan setia! 🍗')">Hubungi Kami via WA 💬</button>
+  </div></div>
+
+  <footer>
+    <div class="ft-grid">
+      <div class="ft-brand"><div class="ft-logo"><div class="logo-ic"><img src="logo.jpeg" alt="logo" onerror="this.style.display='none'"/>🍗</div><span>Kedai Meeoong</span></div><p>Kedai keluarga kami menyajikan Ayam Tacolo dan Chicken Katsu lezat dengan pelayanan hangat penuh kasih sayang.</p></div>
+      <div class="ft-col"><h4>Tautan Cepat</h4><a onclick="goPg('home',null)">Home</a><a onclick="goPg('menu',null)">Menu</a><a onclick="goPg('promo',null)">Promo</a><a onclick="goPg('about',null)">Tentang Kami</a></div>
+      <div class="ft-col"><h4>Kontak</h4><div class="ft-ci"><span class="ft-ci-ic">📍</span><span>Jl. J. Syaranamual RT/RW 005/002, Poka, Kec. Teluk Ambon, Kota Ambon, Maluku 97233</span></div></div>
+      <div class="ft-col"><h4>Ikuti Kami</h4><div class="ft-soc"><div class="fsoc">f</div><div class="fsoc">ig</div></div></div>
+    </div>
+    <div class="ft-bottom">© 2026 Kedai Meeoong Ambon. Semua hak dilindungi.</div>
+  </footer>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: ABOUT -->
+<!-- ============================================================ -->
+<div id="page-about" class="page">
+  <div class="pg-hd"><div class="pg-hd-bg"><img src="suasana dalam.jpeg" alt="" onerror="this.style.display='none'"/></div><h1>Kisah Kami</h1><p>Sebuah perjalanan rasa, tradisi, dan cinta dari dapur keluarga kami</p></div>
+
+  <div class="sec">
+    <div class="story-grid">
+      <div class="story-text">
+        <h2>Selamat Datang di Kedai Meeoong</h2>
+        <p>Kedai Meeoong adalah kedai keluarga yang lahir dari kecintaan kami terhadap kuliner pedas. Berdiri di kawasan Poka, Kecamatan Teluk Ambon, kedai kami dijalankan langsung oleh ibu, kakak, dan adik dengan sepenuh hati.</p>
+        <p>Menu andalan kami adalah Ayam Tacolo — hidangan khas keluarga yang dimasak dengan bumbu rempah pilihan dan tersedia dalam 5 varian saos istimewa: BBQ, Pedas, Keju, BlackPaper, dan Saos Ayam Bakar.</p>
+        <p>Selain Ayam Tacolo, kami juga menyajikan Chicken Katsu dalam 3 varian (Sambal Matah, Pedas, BlackPaper), serta berbagai pilihan minuman segar seperti Pop Ice, Sticky Milk, kopi, dan teh.</p>
+        <p>Kami juga hadir dengan menu-menu spesial: <strong>Ayam Rambut Setan</strong> dengan olahan cabe, kol, dan kemangi resep rahasia keluarga. <strong>Ayam Bakar Dimadu</strong> dengan olesan madu pilihan yang gurih dan manis. Dan <strong>Nasi Goreng Veteran</strong> spesial dengan bumbu kaya rasa.</p>
+      </div>
+      <div class="story-imgbox">
+        <img src="suasana luar.jpeg" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'"/>
+        <div class="img-ph" style="height:100%"><span class="img-ph-icon">🍗</span>FOTO SUASANA KEDAI</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec sec-alt">
+    <div class="sec-hd"><div class="eyebrow">Nilai Kami</div><h2>Yang Membuat Kami Istimewa</h2></div>
+    <div class="val-grid">
+      <div class="val-card"><div class="val-ic">❤️</div><h3>Masak dengan Cinta</h3><p>Setiap hidangan kami masak dengan penuh kasih sayang seperti memasak untuk keluarga sendiri.</p></div>
+      <div class="val-card"><div class="val-ic">⭐</div><h3>Kualitas Terjaga</h3><p>Kami selalu menggunakan bahan segar dan rempah pilihan berkualitas untuk cita rasa terbaik.</p></div>
+      <div class="val-card"><div class="val-ic">👨‍👩‍👧‍👦</div><h3>Kehangatan Keluarga</h3><p>Dikelola langsung oleh ibu, kakak, dan adik. Kedai kami hadir sebagai tempat yang hangat.</p></div>
+      <div class="val-card"><div class="val-ic">🍽️</div><h3>Menu Spesial</h3><p>Dari Ayam Rambut Setan, Ayam Bakar Dimadu, hingga Nasi Goreng Veteran — selalu ada yang baru!</p></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-hd"><div class="eyebrow">Tim Kami</div><h2>Keluarga di Balik Dapur</h2></div>
+    <div class="team-grid">
+      <div class="team-card"><div class="team-av av1"><img src="ibu & bapak.jpeg" alt="Ibu & Bapak" onerror="this.style.display='none'"/>👩</div><h3>Ibu &amp; Bapak</h3><div class="team-role">Chef Utama &amp; Pemilik</div><p>Beliau meracik bumbu rahasia Ayam Tacolo dengan resep turun-temurun yang tak ternilai harganya.</p></div>
+      <div class="team-card"><div class="team-av av2"><img src="kakak.jpeg" alt="Kakak" onerror="this.style.display='none'"/>👩‍🦱</div><h3>Kakak</h3><div class="team-role">Pelayanan &amp; Kasir</div><p>Melayani setiap pelanggan dengan senyum hangat dan ramah. Memastikan setiap pesanan sempurna.</p></div>
+      <div class="team-card"><div class="team-av" style="background:linear-gradient(135deg,#27ae60,#1e8449)"><img src="kakak & adik.jpeg" alt="Kakak & Adik" onerror="this.style.display='none'"/>👫</div><h3>Kakak &amp; Adik</h3><div class="team-role">Marketing &amp; Promosi</div><p>Mengelola media sosial dan promosi Kedai Meeoong agar semakin dikenal oleh masyarakat Ambon.</p></div>
+      <div class="team-card"><div class="team-av av3"><img src="adik.jpeg" alt="Adik" onerror="this.style.display='none'"/>🧑</div><h3>Adik</h3><div class="team-role">Persiapan &amp; Minuman</div><p>Bertanggung jawab menyiapkan bahan masakan dan meracik minuman segar untuk pelanggan.</p></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="ft-grid">
+      <div class="ft-brand"><div class="ft-logo"><div class="logo-ic"><img src="logo.jpeg" alt="logo" onerror="this.style.display='none'"/>🍗</div><span>Kedai Meeoong</span></div><p>Kedai keluarga kami menyajikan Ayam Tacolo dan Chicken Katsu lezat dengan pelayanan hangat penuh kasih sayang.</p></div>
+      <div class="ft-col"><h4>Tautan Cepat</h4><a onclick="goPg('home',null)">Home</a><a onclick="goPg('menu',null)">Menu</a><a onclick="goPg('promo',null)">Promo</a><a onclick="goPg('about',null)">Tentang Kami</a></div>
+      <div class="ft-col"><h4>Kontak</h4><div class="ft-ci"><span class="ft-ci-ic">📍</span><span>Jl. J. Syaranamual RT/RW 005/002, Poka, Kec. Teluk Ambon, Kota Ambon, Maluku 97233</span></div></div>
+      <div class="ft-col"><h4>Ikuti Kami</h4><div class="ft-soc"><div class="fsoc">f</div><div class="fsoc">ig</div></div></div>
+    </div>
+    <div class="ft-bottom">© 2026 Kedai Meeoong Ambon. Semua hak dilindungi.</div>
+  </footer>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE: CONTACT -->
+<!-- ============================================================ -->
+<div id="page-contact" class="page">
+  <div class="pg-hd"><div class="pg-hd-bg"><img src="pesan antar - Copy.jpeg" alt="" onerror="this.style.display='none'"/></div><h1>Hubungi Kami</h1><p>Kami senang mendengar dari Anda! Jangan ragu untuk menghubungi kami</p></div>
+
+  <div class="sec">
+    <div class="con-grid">
+      <div class="con-info">
+        <h2>Informasi Kami</h2>
+        <div class="ci"><div class="ci-ic"><img src="pin lokasi.jpeg" alt="" onerror="this.style.display='none'"/>📍</div><div class="ci-tx"><h4>Alamat</h4><p>Jl. J. Syaranamual, RT/RW 005/002, Poka, Kel. Poka, Kec. Teluk Ambon, Kota Ambon, Maluku 97233</p></div></div>
+        <div class="ci"><div class="ci-ic"><img src="jam.jpeg" alt="" onerror="this.style.display='none'"/>🕐</div><div class="ci-tx"><h4>Jam Operasional</h4><p>Senin – Minggu: Buka setiap hari</p></div></div>
+        <div class="ci"><div class="ci-ic"><img src="pelayanan.jpeg" alt="" onerror="this.style.display='none'"/>👨‍👩‍👧</div><div class="ci-tx"><h4>Dilayani Oleh</h4><p>Dikelola langsung oleh ibu, kakak, dan adik yang siap melayani Anda dengan penuh kehangatan.</p></div></div>
+        <div class="ci"><div class="ci-ic">🌶️</div><div class="ci-tx"><h4>Menu Tersedia</h4><p>Ayam Tacolo (5 varian) • Chicken Katsu (3 varian)<br>Ayam Rambut Setan • Ayam Bakar Dimadu • Nasi Goreng Veteran Veteran<br>Pop Ice • Sticky Milk • Kopi • Teh</p></div></div>
+        <div class="ci"><div class="ci-ic">🎪</div><div class="ci-tx"><h4>Terima Pesanan</h4><p>Bazar &amp; pameran • Acara &amp; pesta • Catering kantor/instansi • Pesanan massal (min. 20 porsi). Hubungi kami untuk info harga spesial!</p></div></div>
+        <div class="soc-box"><h4>Ikuti Kami</h4><div class="soc-icons"><div class="soc-ic s-fb">f</div><div class="soc-ic s-ig">ig</div></div></div>
+      </div>
+
+      <div class="cf">
+        <h2>Kirim Pesan via WhatsApp</h2>
+        <p>Sampaikan pertanyaan, saran, atau pesanan spesial Anda langsung ke penjual</p>
+        <div class="fg"><label>Nama Lengkap *</label><input id="ctName" placeholder="Masukkan nama lengkap Anda"/></div>
+        <div class="fg"><label>Nomor WhatsApp / HP</label><input id="ctPhone" placeholder="Masukkan nomor WhatsApp Anda"/></div>
+        <div class="fg"><label>Subjek</label><input id="ctSubject" placeholder="Tentang apa pesan ini?"/></div>
+        <div class="fg"><label>Pesan *</label><textarea id="ctMsg" placeholder="Tulis pesan Anda di sini..."></textarea></div>
+        <button class="sub-btn" onclick="sendContactWA()">📨 Kirim via WhatsApp Penjual</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" style="padding-top:0">
+    <div class="map-box"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3978.8!2d128.19557!3d-3.65982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d6cef375ae059e3%3A0xa109c4ced379bf33!2sKedai+Meong%2C+Jl.+Y.+Syaranamual%2C+Poka%2C+Kec.+Tlk.+Ambon%2C+Kota+Ambon%2C+Maluku!5e0!3m2!1sid!2sid!4v1716000000000!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  </div>
+
+  <footer>
+    <div class="ft-grid">
+      <div class="ft-brand"><div class="ft-logo"><div class="logo-ic"><img src="logo.jpeg" alt="logo" onerror="this.style.display='none'"/>🍗</div><span>Kedai Meeoong</span></div><p>Kedai keluarga kami menyajikan Ayam Tacolo dan Chicken Katsu lezat dengan pelayanan hangat penuh kasih sayang.</p></div>
+      <div class="ft-col"><h4>Tautan Cepat</h4><a onclick="goPg('home',null)">Home</a><a onclick="goPg('menu',null)">Menu</a><a onclick="goPg('promo',null)">Promo</a><a onclick="goPg('about',null)">Tentang Kami</a></div>
+      <div class="ft-col"><h4>Kontak</h4><div class="ft-ci"><span class="ft-ci-ic">📍</span><span>Jl. J. Syaranamual RT/RW 005/002, Poka, Kec. Teluk Ambon, Kota Ambon, Maluku 97233</span></div></div>
+      <div class="ft-col"><h4>Ikuti Kami</h4><div class="ft-soc"><div class="fsoc">f</div><div class="fsoc">ig</div></div></div>
+    </div>
+    <div class="ft-bottom">© 2026 Kedai Meeoong Ambon. Semua hak dilindungi.</div>
+  </footer>
+</div>
+
+<!-- ============================================================ -->
+<!-- JAVASCRIPT -->
+<!-- ============================================================ -->
+<script>
+// =====================================================
+// KONFIGURASI — ganti nomor WA penjual di sini
+// =====================================================
+var WA_NUMBER = '6282399205798'; // nomor WA PENJUAL (Kedai Meeoong)
+
+// =====================================================
+// STATE
+// =====================================================
+var cart = [];
+var activeVoucherDiscount = 0;
+var activeVoucherCode = '';
+var activeVoucherDesc = '';
+// Simpan nomor HP pembeli yg sudah pakai TACOLO15 (per sesi)
+var tacolo15UsedPhones = [];
+// Stok KATSUWEEK per hari (50 porsi, reset tiap hari)
+var katsuweekStockKey = 'katsuweek_' + new Date().toDateString();
+var katsuweekStock = parseInt(localStorage.getItem(katsuweekStockKey) || '50');
+// Hitung kunjungan per nomor HP (simulasi: disimpan di localStorage)
+function getVisitCount(phone) {
+  var key = 'visits_' + phone.replace(/\D/g,'');
+  return parseInt(localStorage.getItem(key) || '0');
+}
+function incVisitCount(phone) {
+  var key = 'visits_' + phone.replace(/\D/g,'');
+  var n = getVisitCount(phone) + 1;
+  localStorage.setItem(key, n);
+  return n;
+}
+
+// =====================================================
+// VOUCHER RULES
+// =====================================================
+/*
+  TACOLO15  : diskon 15%, hanya 1x per nomor HP (pelanggan baru)
+  KATSUWEEK : diskon 10%, hanya Sabtu & Minggu, stok 50 porsi/hari
+  KELUARGA4 : gratis 4 minuman (~Rp 16.000) jika beli >= 4 porsi makanan
+  HEMAT5    : diskon Rp 5.000, min belanja Rp 20.000
+  FREEPOP   : gratis Pop Ice Rp 8.000, min belanja Rp 30.000
+  SETIA10   : diskon 10%, hanya jika nomor HP sudah >= 3x pesan
+  FREETEH   : gratis Teh/Kopi Rp 4.000, min belanja Rp 20.000
+*/
+
+function todayDay() {
+  return new Date().getDay(); // 0=Minggu, 6=Sabtu
+}
+function isWeekend() {
+  var d = todayDay(); return d === 0 || d === 6;
+}
+function countMakanan() {
+  // item makanan = semua kecuali minuman
+  var minuman = ['Pop Ice','Sticky Milk','Kopi','Teh'];
+  var total = 0;
+  cart.forEach(function(item){
+    var isMinum = minuman.some(function(m){ return item.name.toLowerCase().indexOf(m.toLowerCase()) >= 0; });
+    if (!isMinum) total += item.qty;
+  });
+  return total;
+}
+
+function validateVoucher(code, phone, subtotal) {
+  // Returns { ok: bool, discount: number, desc: string, err: string }
+  var p = phone.replace(/\D/g,'');
+  switch(code) {
+    case 'TACOLO15':
+      if (tacolo15UsedPhones.indexOf(p) >= 0)
+        return { ok:false, err:'Nomor HP ini sudah pernah pakai TACOLO15. Voucher hanya untuk pelanggan baru.' };
+      var disc = Math.round(subtotal * 0.15);
+      return { ok:true, discount:disc, desc:'Diskon 15% pelanggan baru (−Rp '+disc.toLocaleString('id')+')' };
+
+    case 'KATSUWEEK':
+      if (!isWeekend())
+        return { ok:false, err:'Voucher KATSUWEEK hanya berlaku hari Sabtu & Minggu.' };
+      if (katsuweekStock <= 0)
+        return { ok:false, err:'Stok promo KATSUWEEK hari ini sudah habis (50/50 terpakai).' };
+      var disc2 = Math.round(subtotal * 0.10);
+      return { ok:true, discount:disc2, desc:'Diskon 10% weekend — sisa stok hari ini: '+(katsuweekStock-1)+'/50 (−Rp '+disc2.toLocaleString('id')+')' };
+
+    case 'KELUARGA4':
+      var jmlMakanan = countMakanan();
+      if (jmlMakanan < 4)
+        return { ok:false, err:'Voucher KELUARGA4 butuh minimal 4 porsi makanan. Sekarang baru '+jmlMakanan+' porsi.' };
+      return { ok:true, discount:16000, desc:'Gratis 4 minuman untuk 4 porsi makanan (−Rp 16.000)' };
+
+    case 'HEMAT5':
+      if (subtotal < 20000)
+        return { ok:false, err:'Voucher HEMAT5 butuh minimal belanja Rp 20.000. Sekarang Rp '+subtotal.toLocaleString('id')+'.' };
+      return { ok:true, discount:5000, desc:'Diskon Rp 5.000 (−Rp 5.000)' };
+
+    case 'FREEPOP':
+      if (subtotal < 30000)
+        return { ok:false, err:'Voucher FREEPOP butuh minimal belanja Rp 30.000. Sekarang Rp '+subtotal.toLocaleString('id')+'.' };
+      return { ok:true, discount:8000, desc:'Gratis Pop Ice (−Rp 8.000)' };
+
+    case 'SETIA10':
+      var visits = getVisitCount(p);
+      if (visits < 3)
+        return { ok:false, err:'Voucher SETIA10 khusus pelanggan setia (min. 3x pesan). Kamu baru '+visits+'x pesan.' };
+      var disc3 = Math.round(subtotal * 0.10);
+      return { ok:true, discount:disc3, desc:'Diskon 10% pelanggan setia (−Rp '+disc3.toLocaleString('id')+')' };
+
+    case 'FREETEH':
+      if (subtotal < 20000)
+        return { ok:false, err:'Voucher FREETEH butuh minimal belanja Rp 20.000. Sekarang Rp '+subtotal.toLocaleString('id')+'.' };
+      return { ok:true, discount:4000, desc:'Gratis Teh/Kopi (−Rp 4.000)' };
+
+    default:
+      return { ok:false, err:'Kode voucher tidak valid.' };
+  }
+}
+
+// =====================================================
+// OPEN WA — ke nomor PENJUAL, bukan pembeli
+// =====================================================
+function openWA(msg) {
+  window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');
+}
+
+// =====================================================
+// NAV TOGGLE
+// =====================================================
+function toggleNav() {
+  var btn = document.getElementById('hamBtn');
+  var links = document.getElementById('navLinks');
+  var open = links.classList.toggle('open');
+  btn.classList.toggle('open', open);
+}
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('#navLinks a').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.getElementById('navLinks').classList.remove('open');
+      document.getElementById('hamBtn').classList.remove('open');
+    });
+  });
+});
+
+// =====================================================
+// PAGE SWITCH
+// =====================================================
+function goPg(id, el) {
+  document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('on'); });
+  var pg = document.getElementById('page-'+id);
+  if(pg) pg.classList.add('on');
+  document.querySelectorAll('.nav-links a').forEach(function(a){ a.classList.remove('on'); });
+  if (el) el.classList.add('on');
+  document.getElementById('navLinks').classList.remove('open');
+  document.getElementById('hamBtn').classList.remove('open');
+  window.scrollTo(0,0);
+}
+
+// =====================================================
+// SCROLL TO SECTION
+// =====================================================
+function scrollSec(secId, btn) {
+  document.querySelectorAll('.fb').forEach(function(b){ b.classList.remove('on'); });
+  btn.classList.add('on');
+  var el = document.getElementById(secId);
+  if (!el) return;
+  window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 80, behavior:'smooth' });
+}
+
+// =====================================================
+// CART
+// =====================================================
+function updateCartCount() {
+  var total = cart.reduce(function(s,i){ return s+i.qty; }, 0);
+  ['cartCountNav','cartCountFab'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el){ el.textContent=total; el.style.display=total>0?'flex':'none'; }
+  });
+}
+
+function addCart(name, price, btn) {
+  var ex = cart.find(function(i){ return i.name===name; });
+  if(ex) ex.qty++; else cart.push({name:name, price:price, qty:1});
+  updateCartCount();
+  btn.textContent='✓ Ditambahkan!'; btn.classList.add('added');
+  setTimeout(function(){ btn.textContent='+ Tambah ke Keranjang'; btn.classList.remove('added'); },1500);
+  toast('🛒 '+name+' ditambahkan!');
+}
+
+function changeQty(name, delta) {
+  var idx = cart.findIndex(function(i){ return i.name===name; });
+  if(idx<0) return;
+  cart[idx].qty += delta;
+  if(cart[idx].qty<=0) cart.splice(idx,1);
+  updateCartCount(); renderCart();
+}
+
+function toggleCart() {
+  var ov=document.getElementById('cartOverlay'), sb=document.getElementById('cartSidebar');
+  var open=sb.classList.toggle('open');
+  ov.classList.toggle('open',open);
+  if(open) renderCart();
+}
+
+function renderCart() {
+  var el=document.getElementById('cartItems'), ft=document.getElementById('cartFt');
+  if(cart.length===0){
+    el.innerHTML='<div class="cart-empty"><div class="cart-empty-ic">🛒</div><p>Keranjang masih kosong.<br>Yuk pilih menu dulu!</p></div>';
+    ft.style.display='none'; return;
+  }
+  var sub=cart.reduce(function(s,i){return s+i.price*i.qty;},0), html='';
+  cart.forEach(function(item){
+    var n=item.name.replace(/'/g,"\\'");
+    html+='<div class="ci-item">'
+      +'<div class="ci-name"><h4>'+item.name+'</h4><p>Rp '+item.price.toLocaleString('id')+' / porsi</p></div>'
+      +'<div class="ci-qty">'
+      +'<button class="qty-btn" onclick="changeQty(\''+n+'\',-1)">−</button>'
+      +'<span class="qty-num">'+item.qty+'</span>'
+      +'<button class="qty-btn" onclick="changeQty(\''+n+'\',1)">+</button>'
+      +'</div>'
+      +'<div class="ci-price">Rp '+(item.price*item.qty).toLocaleString('id')+'</div>'
+      +'</div>';
+  });
+  el.innerHTML=html;
+  document.getElementById('cartTotal').textContent='Rp '+sub.toLocaleString('id');
+  ft.style.display='block';
+}
+
+// =====================================================
+// CHECKOUT
+// =====================================================
+function openCheckout() {
+  if(cart.length===0){ toast('Keranjang masih kosong!'); return; }
+  document.getElementById('coName').value='';
+  document.getElementById('coPhone').value='';
+  document.getElementById('coVoucher').value='';
+  document.getElementById('vStatus').textContent='';
+  activeVoucherDiscount=0; activeVoucherCode=''; activeVoucherDesc='';
+  renderCoSummary();
+  document.getElementById('checkoutModal').classList.add('open');
+}
+function closeCheckout(){
+  document.getElementById('checkoutModal').classList.remove('open');
+}
+
+function renderCoSummary() {
+  var sub=cart.reduce(function(s,i){return s+i.price*i.qty;},0);
+  var total=Math.max(0,sub-activeVoucherDiscount), html='';
+  cart.forEach(function(i){
+    html+='<div class="co-row"><span>'+i.name+' x'+i.qty+'</span><span>Rp '+(i.price*i.qty).toLocaleString('id')+'</span></div>';
+  });
+  if(activeVoucherDiscount>0){
+    html+='<div class="co-row" style="color:#27AE60"><span>🏷️ '+activeVoucherCode+'</span><span>− Rp '+activeVoucherDiscount.toLocaleString('id')+'</span></div>';
+  }
+  html+='<div class="co-row total"><span>Total</span><span>Rp '+total.toLocaleString('id')+'</span></div>';
+  document.getElementById('coSummary').innerHTML=html;
+}
+
+function applyVoucher() {
+  var code=document.getElementById('coVoucher').value.trim().toUpperCase();
+  var phone=document.getElementById('coPhone').value.trim();
+  var st=document.getElementById('vStatus');
+  if(!code){ st.innerHTML='<span class="v-err">Masukkan kode voucher dulu.</span>'; return; }
+  if(!phone){ st.innerHTML='<span class="v-err">Isi nomor HP dulu sebelum pakai voucher.</span>'; return; }
+  var sub=cart.reduce(function(s,i){return s+i.price*i.qty;},0);
+  var result=validateVoucher(code, phone, sub);
+  if(!result.ok){ st.innerHTML='<span class="v-err">❌ '+result.err+'</span>'; return; }
+  activeVoucherDiscount=result.discount;
+  activeVoucherCode=code;
+  activeVoucherDesc=result.desc;
+  st.innerHTML='<span class="v-ok">✅ '+result.desc+'</span>';
+  renderCoSummary();
+}
+
+function placeOrder() {
+  var name=document.getElementById('coName').value.trim();
+  var phone=document.getElementById('coPhone').value.trim();
+  if(!name||!phone){ toast('Lengkapi nama dan nomor HP dulu ya!'); return; }
+
+  var cartSnap=cart.slice(), discSnap=activeVoucherDiscount, codeSnap=activeVoucherCode;
+
+  // Terapkan efek voucher
+  if(codeSnap==='TACOLO15'){
+    var p=phone.replace(/\D/g,'');
+    if(tacolo15UsedPhones.indexOf(p)<0) tacolo15UsedPhones.push(p);
+  }
+  if(codeSnap==='KATSUWEEK' && katsuweekStock>0){
+    katsuweekStock--;
+    localStorage.setItem(katsuweekStockKey, katsuweekStock);
+  }
+  // Tambah kunjungan
+  incVisitCount(phone);
+
+  // Reset cart
+  cart=[]; activeVoucherDiscount=0; activeVoucherCode=''; activeVoucherDesc='';
+  updateCartCount(); renderCart();
+  document.getElementById('checkoutModal').classList.remove('open');
+  document.getElementById('cartOverlay').classList.remove('open');
+  document.getElementById('cartSidebar').classList.remove('open');
+
+  // Bangun pesan WA
+  var sub2=0;
+  var lines=['🍗 *Pesanan Baru - Kedai Meeoong*','','👤 Nama: '+name,'📱 HP: '+phone,'','📋 *Detail Pesanan:*'];
+  cartSnap.forEach(function(item){
+    lines.push('• '+item.name+' x'+item.qty+' = Rp '+(item.price*item.qty).toLocaleString('id'));
+    sub2+=item.price*item.qty;
+  });
+  if(discSnap>0){
+    lines.push('🏷️ Voucher '+codeSnap+': −Rp '+discSnap.toLocaleString('id'));
+    sub2-=discSnap;
+  }
+  lines.push('','💰 *Total: Rp '+sub2.toLocaleString('id')+'*','','Terima kasih! 🙏');
+
+  // Buka chat WA PENJUAL langsung
+  window.open('https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(lines.join('\n')),'_blank');
+  toast('🎉 Pesanan terkirim ke WA Kedai Meeoong! Terima kasih '+name+' 🙏');
+}
+
+// =====================================================
+// VOUCHER KLAIM (halaman Promo)
+// =====================================================
+var claimedVouchers = new Set();
+
+function klaimVoucher(code, desc, icon, cardId, btn) {
+  if(claimedVouchers.has(code)){ toast('Voucher '+code+' sudah diklaim!'); return; }
+  claimedVouchers.add(code);
+  var card=document.getElementById(cardId);
+  if(card) card.classList.add('claimed');
+  btn.textContent='✓ Sudah Diklaim'; btn.disabled=true;
+  document.getElementById('mIcon').textContent=icon;
+  document.getElementById('mTitle').textContent=desc+' Berhasil Diklaim!';
+  document.getElementById('mDesc').textContent='Masukkan kode ini di kolom voucher saat checkout. Syarat & ketentuan berlaku.';
+  document.getElementById('mCode').textContent=code;
+  document.getElementById('voucherModal').classList.add('open');
+}
+
+function copyPromoCode(code, btn) {
+  navigator.clipboard.writeText(code).then(function(){
+    btn.textContent='✅ Kode Tersalin!'; btn.classList.add('copied');
+    setTimeout(function(){ btn.textContent='📋 Salin Kode'; btn.classList.remove('copied'); },2000);
+    toast('✅ Kode '+code+' berhasil disalin!');
+  }).catch(function(){ toast('Kode: '+code+' — salin manual ya!'); });
+}
+
+function copyVoucher() {
+  var code=document.getElementById('mCode').textContent;
+  navigator.clipboard.writeText(code).then(function(){
+    document.getElementById('voucherModal').classList.remove('open');
+    toast('✅ Kode '+code+' berhasil disalin!');
+  }).catch(function(){ toast('Kode: '+code+' — salin manual ya!'); });
+}
+
+// =====================================================
+// KONTAK — kirim pesan WA ke PENJUAL
+// =====================================================
+function sendContactWA() {
+  var name=(document.getElementById('ctName').value||'').trim();
+  var phone=(document.getElementById('ctPhone').value||'').trim();
+  var subject=(document.getElementById('ctSubject').value||'').trim();
+  var msg=(document.getElementById('ctMsg').value||'').trim();
+  if(!name||!msg){ toast('Isi nama dan pesan dulu ya! 😊'); return; }
+  var lines=['💬 *Pesan dari Website - Kedai Meeoong*','','👤 Nama: '+name];
+  if(phone) lines.push('📱 HP: '+phone);
+  if(subject) lines.push('📌 Subjek: '+subject);
+  lines.push('','📝 Pesan:',msg,'','Terima kasih! 🙏');
+  window.open('https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(lines.join('\n')),'_blank');
+  toast('Pesan dikirim ke WhatsApp Kedai Meeoong! 💬');
+  ['ctName','ctPhone','ctSubject','ctMsg'].forEach(function(id){
+    document.getElementById(id).value='';
+  });
+}
+
+// =====================================================
+// TOAST
+// =====================================================
+function toast(msg) {
+  var t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer=setTimeout(function(){ t.classList.remove('show'); },3200);
+}
+</script>
+
+</body>
+</html>
